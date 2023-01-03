@@ -1,0 +1,12 @@
+#selected_date
+{
+    width: 200px;
+    padding: 7px;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+
+    background-color: hsla(90 , 100% , 50% , 0);
+}

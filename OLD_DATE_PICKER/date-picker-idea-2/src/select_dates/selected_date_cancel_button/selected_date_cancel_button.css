@@ -1,0 +1,17 @@
+#selected_date_cancel_button
+{
+    width: 50px;
+    padding: 7px;
+    font-size: 16px;
+    border-width: 0px;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 0px 5px 5px 0px;
+    transition-duration: 1s;
+    background-color: hsla(0 , 100% , 100% , 1);
+}
+#selected_date_cancel_button:hover
+{
+    transition-duration: 1s;
+    background-color: hsla(0 , 0% , 90% , 1);
+}
