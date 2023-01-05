@@ -1,0 +1,9 @@
+.date_button_place_holder
+{
+    height: 50px;
+    width: 50px;
+
+    margin: 2.5px;
+
+    background-color: hsla(0, 100%, 100%, 1);
+}

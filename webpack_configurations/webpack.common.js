@@ -16,7 +16,7 @@ module.exports =
         `
           <html>
             <body>
-              <div id="root"></div>
+              <div id='root' class='root' aria-label='root' data-test-id='root'></div>
             </body>
           </html>
         `

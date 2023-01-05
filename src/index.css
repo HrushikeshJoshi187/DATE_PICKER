@@ -11,3 +11,10 @@ body
 {
   overflow: hidden;
 }
+
+#root
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
