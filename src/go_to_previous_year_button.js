@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './go_to_previous_year_button.css';
 
 export default function GoToPreviousYearButton(props)

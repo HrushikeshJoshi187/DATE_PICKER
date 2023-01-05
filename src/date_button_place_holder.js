@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './date_button_place_holder.css';
 
 export default function DateButtonPlaceHolder(props)

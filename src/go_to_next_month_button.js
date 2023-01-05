@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './go_to_next_month_button.css';
 
 export default function GoToNextMonthButton(props)
