@@ -1,0 +1,24 @@
+#go_to_previous_year_button
+{
+    width: 50px;
+    height: 50px;
+
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 50px;
+
+    background-color: hsla(0, 100%, 100%, 1);
+
+    margin: 2.5px;
+
+    transition-duration: 0.33s;
+}
+
+#go_to_previous_year_button:hover
+{
+    /*
+        background-color: hsla(265, 100%, 46.7%, 1);
+    */
+    background-color: hsla(231, 98.8%, 66.1%, 1);
+    color: hsla(90, 100%, 100%, 1);
+}
