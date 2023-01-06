@@ -1,35 +1,107 @@
 import React , { createContext, useContext, useReducer, useState } from 'react';
 
 
-const PresentDateContext = createContext(null);
-const CurrentDateContext = createContext(null);
+let today_s_date = new Date();
+today_s_date = new Date(today_s_date.getFullYear(), today_s_date.getMonth(), today_s_date.getDate());
 
+const DatePickerDataStateContext = createContext(null);
+const DatePickerDataDispatcherContext = createContext(null);
+
+const date_picker_data_initial_state = 
+{
+    present_date: today_s_date.getDate(),
+    present_month: today_s_date.getMonth(),
+    present_year: today_s_date.getFullYear(),
+    current_date: today_s_date.getDate(),
+    current_month: today_s_date.getMonth(),
+    current_year: today_s_date.getFullYear(),
+};
+
+function date_picker_data_reducer(state, action)
+{
+    let new_state = {}
+    switch(action.type)
+    {
+        case 'go_to_previous_year':
+        {
+            new_state = {...state}
+            new_state.current_year = new_state.current_year - 1;
+            return new_state;
+        }
+
+        case 'go_to_previous_month':
+        {
+            new_state = {...state}
+            if(new_state.current_month - 1 === -1)
+            {
+                new_state.current_month = 11;
+                new_state.current_year -= 1;
+            }
+            else
+            {
+                new_state.current_month -= 1
+            }
+            return new_state;
+        }
+
+        case 'go_to_month':
+            console.log('year');
+        break;
+
+        case 'go_to_year':
+            console.log('year');
+        break;
+
+        case 'go_to_next_month':
+        {
+            new_state = {...state}
+            if(new_state.current_month + 1 === 12)
+            {
+                new_state.current_month = 0;
+                new_state.current_year += 1;
+            }
+            else
+            {
+                new_state.current_month += 1
+            }
+            return new_state;
+        }
+
+        case 'go_to_next_year':
+        {
+            new_state = {...state}
+            new_state.current_year = new_state.current_year + 1;
+            return new_state;
+        }
+
+        default:
+            console.log('Data action not found !');
+    }
+}
 
 export default function DatePickerDataProvider(props)
 {
-    let today_s_date = new Date();
-    today_s_date = new Date(today_s_date.getFullYear(), today_s_date.getMonth(), today_s_date.getDate());
-
-    const [present_date, set_present_date] = useState({year: today_s_date.getFullYear(), month: today_s_date.getMonth(), date: today_s_date.getDate()});
-
-    const [current_date, set_current_date] = useState({year: today_s_date.getFullYear(), month: today_s_date.getMonth(), date: today_s_date.getDate()});
+    const [date_picker_data_state, date_picker_data_dispatcher] = useReducer(
+        date_picker_data_reducer,
+        date_picker_data_initial_state
+    );
 
     return (
-        <PresentDateContext.Provider value={{present_date, set_present_date}}>
-            <CurrentDateContext.Provider value={{current_date, set_current_date}}>
+        <DatePickerDataStateContext.Provider value={date_picker_data_state}>
+            <DatePickerDataDispatcherContext.Provider value={date_picker_data_dispatcher}>
                 {props.children}
-            </CurrentDateContext.Provider>
-        </PresentDateContext.Provider>
+            </DatePickerDataDispatcherContext.Provider>
+        </DatePickerDataStateContext.Provider>
     );
 }
 
-export function get_present_date()
+export function get_date_picker_data_state()
 {
-    return useContext(PresentDateContext);
+    return useContext(DatePickerDataStateContext);
 }
 
-export function get_current_date()
+export function get_date_picker_data_dispatcher()
 {
-    return useContext(CurrentDateContext);
+    return useContext(DatePickerDataDispatcherContext);
 }
 

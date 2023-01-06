@@ -11,7 +11,7 @@ import GoToMonthButton from './go_to_month_button.js';
 import GoToYearButton from './go_to_year_button.js';
 import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
-import { get_present_date } from './date_picker_data_provider.js';
+import { get_date_picker_data_state } from './date_picker_data_provider.js';
 
 
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -19,9 +19,8 @@ let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 export default function DateButtons(props)
 {
-    const { present_date } = get_present_date();
-    console.log('present date : ', present_date);
-    console.log('current date : ',);
+    const state = {...get_date_picker_data_state()};
+    console.log('data : ', state);
 
     let week_days_labels= [];
     let number_of_days_in_a_week = 7;
@@ -31,10 +30,10 @@ export default function DateButtons(props)
     let extra_day = 0;
     let total_number_of_dates = 42;
 
-    let first_day = (new Date(present_date.year, present_date.month , 1)).getDay();
+    let first_day = (new Date(state.current_year, state.current_month , 1)).getDay();
     let number_of_place_holders_before_dates = first_day - props.first_day_of_week;
     
-    extra_day = ((present_date.month === 1) && (present_date.year % 100 === 0 ? present_date.year % 400 === 0 : present_date.year % 4 === 0)) ? 1 : 0;
+    extra_day = ((state.current_month === 1) && (state.current_year % 100 === 0 ? state.current_year % 400 === 0 : state.current_year % 4 === 0)) ? 1 : 0;
 
     for(let i = 0; i < number_of_days_in_a_week; i++)
     {
@@ -43,21 +42,21 @@ export default function DateButtons(props)
         )
     }
 
-    for(let i = 0, k = (present_date.month === 0 ? 31 : number_of_dates_in_month[present_date.month - 1]) - number_of_place_holders_before_dates + 1; i < number_of_place_holders_before_dates; i++, k++)
+    for(let i = 0, k = (state.current_month === 0 ? 31 : number_of_dates_in_month[state.current_month - 1]) - number_of_place_holders_before_dates + 1; i < number_of_place_holders_before_dates; i++, k++)
     {
         place_holder_before_dates.push(
             <DateButtonPlaceHolder place_holder_number={i} date={k}/>
         )
     }
 
-    for(let i = 0; i < number_of_dates_in_month[present_date.month] + extra_day; i++)
+    for(let i = 0; i < number_of_dates_in_month[state.current_month] + extra_day; i++)
     {
         dates_in_month.push(
             <DateButton date={i} />
         )
     }
 
-    for(let i = number_of_place_holders_before_dates + number_of_dates_in_month[present_date.month] + extra_day, j = number_of_place_holders_before_dates, k = 1; i < total_number_of_dates; i++, j++, k++)
+    for(let i = number_of_place_holders_before_dates + number_of_dates_in_month[state.current_month] + extra_day, j = number_of_place_holders_before_dates, k = 1; i < total_number_of_dates; i++, j++, k++)
     {
         place_holder_after_dates.push(
             <DateButtonPlaceHolder place_holder_number={j} date={k}/>
