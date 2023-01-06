@@ -3,94 +3,39 @@
     width: 50px;
     height: 50px;
 
+    margin: 2.5px;
+
     border-style: solid;
     border-width: 0px;
     border-radius: 50px;
 
     background-color: var(--date_background_color, hsla(0, 100%, 100%, 1));
     color: var(--date_color, hsla(0, 100%, 0%, 1));
-
-    margin: 2.5px;
-
-    transition-duration: 0.33s;
 }
 
 .date_Button:hover
 {
-    background-color: var(--date_to_be_selected_background_color, hsla(232, 100%, 50%, 1));
+    background-color: var(--date_to_be_selected_background_color, hsla(232, 100%, 65%, 1));
     color: var(--date_to_be_selected_color, hsla(0, 100%, 100%, 1));
-}
-.deselected:hover
-{
-    height: 40px;
-    width: 40px;
-    font-size: 16px;
-    margin: 15px;
-    background-color: hsla(203 , 85% , 54% , 1); 
-    color: hsla(90 , 100% , 100% , 1); 
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 5px;
+
     transition-duration: 0.33s;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.selected
+.date_button_selected
 {
-    height: 40px;
-    width: 40px;
-    font-size: 16px;
-    margin: 15px;
-    background-color: hsla(233 , 85% , 53% , 1); 
-    color: hsla(90 , 100% , 100% , 1); 
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 5px;
-    transition-duration: 0.33s;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
 }
 
-.selected:hover
+.date_button_range_start_selected
 {
-    height: 40px;
-    width: 40px;
-    font-size: 16px;
-    margin: 15px;
-    background-color: hsla(203 , 85% , 54% , 1); 
-    color: hsla(90 , 100% , 100% , 1); 
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 5px;
-    transition-duration: 0.33s;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
 
-.range_selected
-{
-    height: 50px;
-    width: 50px;
-    font-size: 16px;
-    margin: 10px;
-    background-color: hsla(233 , 85% , 53% , 1); 
-    color: hsla(90 , 100% , 100% , 1); 
     border-style: solid;
     border-width: 0px;
-    border-radius: 50px;
-    transition-duration: 0.33s;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.range_selected:hover
-{
-    height: 50px;
-    width: 50px;
-    font-size: 16px;
-    margin: 10px;
-    background-color: hsla(203 , 85% , 54% , 1); 
-    color: hsla(90 , 100% , 100% , 1); 
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 50px;
-    transition-duration: 0.33s;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 50px;
 }

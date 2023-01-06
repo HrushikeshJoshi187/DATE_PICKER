@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './date_buttons.css';
+import './calendar.css';
 
 import DateButton from './date_button.js';
 import DateButtonPlaceHolder from './date_button_place_holder.js';
@@ -17,7 +17,7 @@ import { get_date_picker_data_state } from './date_picker_data_provider.js';
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-export default function DateButtons(props)
+export default function Calendar(props)
 {
     const state = {...get_date_picker_data_state()};
     console.log('data : ', state);
@@ -45,26 +45,26 @@ export default function DateButtons(props)
     for(let i = 0, k = (state.current_month === 0 ? 31 : number_of_dates_in_month[state.current_month - 1]) - number_of_place_holders_before_dates + 1; i < number_of_place_holders_before_dates; i++, k++)
     {
         place_holder_before_dates.push(
-            <DateButtonPlaceHolder place_holder_number={i} date={k}/>
+            <DateButtonPlaceHolder place_holder_number={i} date={k} />
         )
     }
 
     for(let i = 0; i < number_of_dates_in_month[state.current_month] + extra_day; i++)
     {
         dates_in_month.push(
-            <DateButton date={i} />
+            <DateButton date={i + 1} month={state.current_month} year={state.current_year}/>
         )
     }
 
     for(let i = number_of_place_holders_before_dates + number_of_dates_in_month[state.current_month] + extra_day, j = number_of_place_holders_before_dates, k = 1; i < total_number_of_dates; i++, j++, k++)
     {
         place_holder_after_dates.push(
-            <DateButtonPlaceHolder place_holder_number={j} date={k}/>
+            <DateButtonPlaceHolder place_holder_number={j} date={k} />
         )
     }
 
     return (
-        <div id='date_buttons' className='date_buttons' aria-label='date_buttons' data-test-id='date_buttons'>
+        <div id='calendar' className='calendar' aria-label='calendar' data-test-id='calendar'>
             <GoToPreviousYearButton />
             <GoToPreviousMonthButton />
             <GoToMonthButton />

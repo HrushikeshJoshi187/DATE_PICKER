@@ -15,6 +15,8 @@ const date_picker_data_initial_state =
     current_date: today_s_date.getDate(),
     current_month: today_s_date.getMonth(),
     current_year: today_s_date.getFullYear(),
+    selected_dates: new Set(),
+    range_start: ''
 };
 
 function date_picker_data_reducer(state, action)
@@ -71,6 +73,64 @@ function date_picker_data_reducer(state, action)
         {
             new_state = {...state}
             new_state.current_year = new_state.current_year + 1;
+            return new_state;
+        }
+
+        case 'check_date':
+        {
+            new_state = {...state}
+            if(new_state.range_start !== '')
+            {
+                new_state.range_start = '';
+            }
+            if(new_state.selected_dates.has(action.clicked_date))
+            {
+                new_state.selected_dates.delete(action.clicked_date);
+            }
+            else
+            {
+                new_state.selected_dates.add(action.clicked_date);
+            }
+            return new_state;
+        }
+
+        case 'check_range':
+        {
+            new_state = {...state}
+            if(new_state.range_start === '')
+            {
+                new_state.range_start = action.clicked_date;
+            }
+            else
+            {
+                if(new_state.range_start === action.clicked_date)
+                {
+                    new_state.range_start = '';
+                    if(new_state.selected_dates.has(action.clicked_date))
+                    {
+                        new_state.selected_dates.delete(action.clicked_date);
+                    }
+                    else
+                    {
+                        new_state.selected_dates.add(action.clicked_date);
+                    }
+                }
+                else
+                {
+                    if(new Date(new_state.range_start) < new Date(action.clicked_date))
+                    {
+                       for(let i = new Date(new_state.range_start); i <= new Date(action.clicked_date); i.setDate(i.getDate() + 1))
+                       {
+                            new_state.selected_dates.add(i.toISOString().split('T')[0]);
+                       } 
+                       new_state.range_start = '';
+                    }   
+                    else
+                    {
+                        new_state.range_start = action.clicked_date;
+                    }
+                }
+            }
             return new_state;
         }
 

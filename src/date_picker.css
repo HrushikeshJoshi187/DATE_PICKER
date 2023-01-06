@@ -6,11 +6,11 @@
     --date_background_color: hsla(0, 100%, 100%, 1);
     --date_color: hsla(0, 100%, 0%, 1);
 
-    --date_to_be_selected_background_color: hsla(232, 100%, 50%, 1);
+    --date_to_be_selected_background_color: hsla(232, 100%, 65%, 1);
     --date_to_be_selected_color: hsla(0, 100%, 100%, 1);
 
-    --date_selected_date_background_color: hsla(231, 100%, 47%, 1);
-    --date_selected_date_color: hsla(0, 100%, 100%, 1);
+    --date_selected_background_color: hsla(231, 100%, 47%, 1);
+    --date_selected_color: hsla(0, 100%, 100%, 1);
 
     --date_disabled_background_color: hsla(0, 100%, 100%, 1);
     --date_disabled_color: hsla(0, 0%, 80%, 1);
