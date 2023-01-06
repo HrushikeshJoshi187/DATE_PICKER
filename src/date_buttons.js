@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './date_buttons.css';
 
 import DateButton from './date_button.js';
@@ -10,8 +11,7 @@ import GoToMonthButton from './go_to_month_button.js';
 import GoToYearButton from './go_to_year_button.js';
 import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
-
-import { get_present_date } from './date_picker_data_provider';
+import { get_present_date } from './date_picker_data_provider.js';
 
 
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -21,6 +21,7 @@ export default function DateButtons(props)
 {
     const { present_date } = get_present_date();
     console.log('present date : ', present_date);
+    console.log('current date : ',);
 
     let week_days_labels= [];
     let number_of_days_in_a_week = 7;

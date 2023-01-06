@@ -1,7 +1,9 @@
 import React , { createContext, useContext, useReducer, useState } from 'react';
 
+
 const PresentDateContext = createContext(null);
 const CurrentDateContext = createContext(null);
+
 
 export default function DatePickerDataProvider(props)
 {
@@ -10,7 +12,7 @@ export default function DatePickerDataProvider(props)
 
     const [present_date, set_present_date] = useState({year: today_s_date.getFullYear(), month: today_s_date.getMonth(), date: today_s_date.getDate()});
 
-    const [current_date, set_current_date] = useState({year: today_s_date.getFullYear(), month: today_s_date.getMonth()});
+    const [current_date, set_current_date] = useState({year: today_s_date.getFullYear(), month: today_s_date.getMonth(), date: today_s_date.getDate()});
 
     return (
         <PresentDateContext.Provider value={{present_date, set_present_date}}>
