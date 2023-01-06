@@ -29,7 +29,6 @@ export default function DateButtons(props)
     let dates_in_month = [];
     let extra_day = 0;
     let total_number_of_dates = 42;
-    
 
     let first_day = (new Date(present_date.year, present_date.month , 1)).getDay();
     let number_of_place_holders_before_dates = first_day - props.first_day_of_week;

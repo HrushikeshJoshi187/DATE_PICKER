@@ -2,9 +2,11 @@
 {
     height : 100vh;
     width : 100vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient( 90deg , hsla(10 , 100% , 59% , 1) , hsla(333 , 73% , 50% , 1));
+
+    background-image: radial-gradient(circle, hsla(232, 100%, 50%, 1), hsla(232, 100%, 17.5%, 1));
 }
 

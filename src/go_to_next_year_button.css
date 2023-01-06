@@ -7,7 +7,8 @@
     border-width: 0px;
     border-radius: 50px;
 
-    background-color: hsla(0, 100%, 100%, 1);
+    background-color: var(--action_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--action_color, hsla(0, 100%, 0%, 1));
 
     margin: 2.5px;
 
@@ -16,9 +17,6 @@
 
 #go_to_next_year_button:hover
 {
-    /*
-        background-color: hsla(265, 100%, 46.7%, 1);
-    */
-    background-color: hsla(231, 98.8%, 66.1%, 1);
-    color: hsla(90, 100%, 100%, 1);
+    background-color: var(--action_to_be_selected_background_color, hsla(232, 100%, 50%, 1));
+    color: var(--action_to_be_selected_color, hsla(0, 100%, 100%, 1));
 }

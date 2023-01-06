@@ -7,7 +7,12 @@
     
     padding: auto;
 
-    background-color: hsla(0, 100%, 100%, 1);
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 50px;
+
+    background-color: var(--day_label_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--day_label_color, hsla(0, 100%, 0%, 1));
 
     line-height: 50px;
     text-align: center;
@@ -18,7 +23,7 @@
     visibility: hidden;
 
     position: relative;
-    left: 0px;
+    top: -10px;
     
     z-index: 10;
 
@@ -34,8 +39,8 @@
     border-width: 0px;
     border-radius: 5px;
 
-    background-color: hsla(0, 0%, 50%, 1);
-    color: hsla(0, 100%, 100%, 1);
+    background-color: var(--tooltip_background_color, hsla(0, 0%, 50%, 1));
+    color: var(--tooltip_color, hsla(0, 100%, 100%, 1));
 
     opacity: 0;
     transition: opacity 0.33s;
@@ -43,44 +48,44 @@
 
 .day_label_Sunday
 {
-    width:58px;
-    left: -4px;
-}
-
-.day_label_Monday
-{
-    width: 64px;
-    left: -7px;
-}
-
-.day_label_Tuesday
-{
-    width: 64px;
-    left: -7px;
-}
-
-.day_label_Wednesday
-{
-    width: 84px;
-    left: -17px;
-}
-
-.day_label_Thursday
-{
     width: 71px;
     left: -10.5px;
 }
 
+.day_label_Monday
+{
+    width: 73px;
+    left: -11.5px;
+}
+
+.day_label_Tuesday
+{
+    width: 76px;
+    left: -13px;
+}
+
+.day_label_Wednesday
+{
+    width: 102px;
+    left: -26px;
+}
+
+.day_label_Thursday
+{
+    width: 85px;
+    left: -17.5px;
+}
+
 .day_label_Friday
 {
-    width: 52px;
-    left: -1px;
+    width: 60px;
+    left: -5px;
 }
 
 .day_label_Saturday
 {
-    width: 67px;
-    left: -7.5px;
+    width: 83px;
+    left: -16.5px;
 }
 
 .day_label:hover .day_label_tooltip

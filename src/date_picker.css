@@ -1,0 +1,29 @@
+#date_picker
+{
+    --background_color: hsla(0, 100%, 100%, 1);
+    --color: hsla(0, 100%, 0%, 1);
+
+    --date_background_color: hsla(0, 100%, 100%, 1);
+    --date_color: hsla(0, 100%, 0%, 1);
+
+    --date_to_be_selected_background_color: hsla(232, 100%, 50%, 1);
+    --date_to_be_selected_color: hsla(0, 100%, 100%, 1);
+
+    --date_selected_date_background_color: hsla(231, 100%, 47%, 1);
+    --date_selected_date_color: hsla(0, 100%, 100%, 1);
+
+    --date_disabled_background_color: hsla(0, 100%, 100%, 1);
+    --date_disabled_color: hsla(0, 0%, 80%, 1);
+
+    --day_label_background_color: hsla(0, 100%, 100%, 1);
+    --day_label_color: hsla(0, 100%, 0%, 1);
+
+    --tooltip_background_color: hsla(0, 0%, 50%, 1);
+    --tooltip_color: hsla(0, 100%, 100%, 1);
+
+    --action_background_color: hsla(0, 100%, 100%, 1);
+    --action_color: hsla(0, 100%, 0%, 1);
+
+    --action_to_be_selected_background_color: hsla(232, 100%, 50%, 1);
+    --action_to_be_selected_color: hsla(0, 100%, 100%, 1);
+}
