@@ -12,6 +12,7 @@ import GoToYearsButton from './go_to_years_button.js';
 import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
 import MonthButton from './month_button.js';
+import YearButton from './year_button.js';
 import { get_date_picker_data_state } from './date_picker_data_provider.js';
 
 
@@ -32,6 +33,8 @@ export default function Calendar(props)
     let total_number_of_dates = 42;
     let total_number_of_months = 12;
     let months_in_year = [];
+    let tota_number_years_in_a_decade = 10;
+    let years_in_decade = [];
 
     let first_day = (new Date(state.current_year, state.current_month , 1)).getDay();
     let number_of_place_holders_before_dates = first_day - props.first_day_of_week;
@@ -69,7 +72,14 @@ export default function Calendar(props)
     for(let i = 0; i < total_number_of_months; i++)
     {
         months_in_year.push(
-            <MonthButton month={i} />
+            <MonthButton month={i} year={state.current_year}/>
+        )
+    }
+
+    for(let i = 0, j = state.current_year - 5; i < tota_number_years_in_a_decade; i++, j++)
+    {
+        years_in_decade.push(
+            <YearButton month={state.current_month} year={j} />
         )
     }
 
@@ -92,6 +102,11 @@ export default function Calendar(props)
             {state.go_to_months_mode &&
                 <>
                     {months_in_year}
+                </>
+            }
+            {state.go_to_years_mode &&
+                <>
+                    {years_in_decade}
                 </>
             }
         </div>

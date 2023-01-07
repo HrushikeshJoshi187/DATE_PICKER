@@ -1,3 +1,4 @@
 add first day of week
-add month mode 
-add year mode
+accessiblity and tab control
+language support
+add decade buttons

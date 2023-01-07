@@ -59,6 +59,14 @@ function date_picker_data_reducer(state, action)
             return new_state;
         }
 
+        case 'go_to_month':
+        {
+            new_state = {...state}
+            new_state.current_month = action.month;
+            new_state.go_to_months_mode = false;
+            return new_state;
+        }
+
         case 'go_to_years':
         {
             new_state = {...state}
@@ -67,11 +75,34 @@ function date_picker_data_reducer(state, action)
             return new_state;
         }
 
-        case 'go_to_month':
+        case 'go_to_year':
         {
             new_state = {...state}
-            new_state.current_month = action.month;
-            new_state.go_to_months_mode = false;
+            if(action.year < new_state.current_year)
+            {
+                if(action.month < (new Date(new_state.lower_bound).getMonth()))
+                {
+                    new_state.current_month = (new Date(new_state.lower_bound).getMonth());
+                }
+                else
+                {
+                    new_state.current_month = action.month;
+                }
+            }
+            if(action.year > new_state.current_year)
+            {
+                if(action.month > (new Date(new_state.upper_bound).getMonth()))
+                {
+                    new_state.current_month = (new Date(new_state.upper_bound).getMonth());
+                }
+                else
+                {
+                    new_state.current_month = action.month;
+                }
+            }
+            new_state.current_year = action.year;
+            
+            new_state.go_to_years_mode = false;
             return new_state;
         }
 

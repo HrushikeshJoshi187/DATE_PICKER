@@ -26,3 +26,15 @@
     background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
     color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
 }
+
+.month_button_disabled
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
+
+.month_button_disabled:hover
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
