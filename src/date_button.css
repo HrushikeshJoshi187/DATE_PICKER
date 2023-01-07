@@ -21,6 +21,13 @@
     transition-duration: 0.33s;
 }
 
+.date_button_present_date
+{
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+}
+
 .date_button_selected
 {
     background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));

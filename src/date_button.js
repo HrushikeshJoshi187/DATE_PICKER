@@ -35,7 +35,7 @@ export default function DateButton(props)
     }
     
     return (
-        <button id={`date_button_${date}`} className={`date_button ${(state.selected_dates.has(date)) ? 'date_button_selected' : ''} ${(state.range_start === date) ? 'date_button_range_start_selected' : ''}`} aria-label={`${props.date} ${months_of_year_long_forms[props.month]} ${props.year}`} data-test-id={`date_button_${date}`} onMouseDown={action_start} onMouseUp={action_end} >
+        <button id={`date_button_${date}`} className={`date_button ${(state.selected_dates.has(date)) ? 'date_button_selected' : ''} ${(state.range_start === date) ? 'date_button_range_start_selected' : ''} ${(state.present_year === props.year && state.present_month === props.month && state.present_date === props.date) ? `date_button_present_date`: ''}`} aria-label={`${props.date} ${months_of_year_long_forms[props.month]} ${props.year}`} data-test-id={`date_button_${date}`} onMouseDown={action_start} onMouseUp={action_end} >
             {props.date}
         </button>
     );

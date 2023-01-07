@@ -16,7 +16,11 @@ const date_picker_data_initial_state =
     current_month: today_s_date.getMonth(),
     current_year: today_s_date.getFullYear(),
     selected_dates: new Set(),
-    range_start: ''
+    range_start: '',
+    go_to_month_mode : false,
+    go_to_year_mode : false,
+    lower_bound: '',
+    upper_bound: ''
 };
 
 function date_picker_data_reducer(state, action)
@@ -47,12 +51,40 @@ function date_picker_data_reducer(state, action)
         }
 
         case 'go_to_month':
-            console.log('year');
-        break;
+        {
+            new_state = {...state}
+            if(new_state.go_to_year_mode === true)
+            {
+                new_state.go_to_year_mode = false;
+            }
+            if(new_state.go_to_month_mode === true)
+            {
+                new_state.go_to_month_mode = false;
+            }
+            else
+            {
+                new_state.go_to_month_mode = true;
+            }
+            return new_state;
+        }
 
         case 'go_to_year':
-            console.log('year');
-        break;
+        {
+            new_state = {...state}
+            if(new_state.go_to_month_mode === true)
+            {
+                new_state.go_to_month_mode = false;
+            }
+            if(new_state.go_to_year_mode === true)
+            {
+                new_state.go_to_year_mode = false;
+            }
+            else
+            {
+                new_state.go_to_year_mode = true;
+            }
+            return new_state;
+        }
 
         case 'go_to_next_month':
         {
@@ -141,6 +173,10 @@ function date_picker_data_reducer(state, action)
 
 export default function DatePickerDataProvider(props)
 {
+    date_picker_data_initial_state.lower_bound = props.lower_bound;
+    date_picker_data_initial_state.upper_bound = props.upper_bound;
+
+
     const [date_picker_data_state, date_picker_data_dispatcher] = useReducer(
         date_picker_data_reducer,
         date_picker_data_initial_state

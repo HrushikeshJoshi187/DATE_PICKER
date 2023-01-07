@@ -1,4 +1,4 @@
-#go_to_next_month_button
+.go_to_next_month_button
 {
     width: 50px;
     height: 50px;
@@ -15,8 +15,21 @@
     transition-duration: 0.33s;
 }
 
-#go_to_next_month_button:hover
+.go_to_next_month_button:hover
 {
     background-color: var(--action_to_be_selected_background_color, hsla(232, 100%, 50%, 1));
     color: var(--action_to_be_selected_color, hsla(0, 100%, 100%, 1));
+}
+
+
+.go_to_next_month_button_disabled
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
+
+.go_to_next_month_button_disabled:hover
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
 }
