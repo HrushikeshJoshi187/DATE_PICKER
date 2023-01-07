@@ -26,16 +26,33 @@ export default function DateButton(props)
         const click_duration = end_time - start_time;
         if(click_duration > 500)
         {
-            dispatcher({type: 'check_range', clicked_date: date});
+            if(!(disable_date || state.missing_dates.has(date)))
+            {
+                dispatcher({type: 'check_range', clicked_date: date});
+            }
         }
         else
         {
-            dispatcher({type: 'check_date', clicked_date: date});
+            if(!(disable_date || state.missing_dates.has(date)))
+            {
+                dispatcher({type: 'check_date', clicked_date: date});
+            }
         }
+    }
+
+    let disable_date = false;
+    if(state.lower_bound !== '' && ((new Date(date)) < (new Date(state.lower_bound))))
+    {
+        disable_date = true;
+    }
+
+    if(state.upper_bound !== '' && ((new Date(date)) > (new Date(state.upper_bound))))
+    {
+        disable_date = true;
     }
     
     return (
-        <button id={`date_button_${date}`} className={`date_button ${(state.selected_dates.has(date)) ? 'date_button_selected' : ''} ${(state.range_start === date) ? 'date_button_range_start_selected' : ''} ${(state.present_year === props.year && state.present_month === props.month && state.present_date === props.date) ? `date_button_present_date`: ''}`} aria-label={`${props.date} ${months_of_year_long_forms[props.month]} ${props.year}`} data-test-id={`date_button_${date}`} onMouseDown={action_start} onMouseUp={action_end} >
+        <button id={`date_button_${date}`} className={`date_button ${(state.selected_dates.has(date)) ? 'date_button_selected' : ''} ${(state.range_start === date) ? 'date_button_range_start_selected' : ''} ${(state.present_year === props.year && state.present_month === props.month && state.present_date === props.date) ? `date_button_present_date`: ''} ${(disable_date || state.missing_dates.has(date)) ? 'date_button_disabled' : ''}`} aria-label={`${props.date} ${months_of_year_long_forms[props.month]} ${props.year}`} data-test-id={`date_button_${date}`} onMouseDown={action_start} onMouseUp={action_end} disabled={disable_date}>
             {props.date}
         </button>
     );

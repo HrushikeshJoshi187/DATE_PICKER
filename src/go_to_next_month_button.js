@@ -10,21 +10,14 @@ export default function GoToNextMonthButton(props)
     let dispatcher = get_date_picker_data_dispatcher();
     let state = get_date_picker_data_state();
 
-    let can_go_to_next_month = false;
-    if(state.current_year === ((new Date(state.upper_bound)).getFullYear()))
+    let disable_go_to_next_month = false;
+    if((state.upper_bound !== '') && (state.current_year === ((new Date(state.upper_bound)).getFullYear())) && (state.current_month === (new Date(state.upper_bound)).getMonth()))
     {
-        if(state.current_month < (new Date(state.upper_bound)).getMonth())
-        {
-            can_go_to_next_month = true;
-        }
-    }
-    else if(state.current_year < ((new Date(state.upper_bound)).getFullYear()))
-    {
-        can_go_to_next_month = true;
+        disable_go_to_next_month = true;
     }
 
     return (
-        <button id='go_to_next_month_button' className={`go_to_next_month_button ${(!can_go_to_next_month) ? 'go_to_next_month_button_disabled' : ''}`} aria-label='go_to_next_month_button' data-test-id='go_to_next_month_button' onClick={() => {dispatcher({type: 'go_to_next_month'})}} disabled={!can_go_to_next_month}>
+        <button id='go_to_next_month_button' className={`go_to_next_month_button ${(disable_go_to_next_month) ? 'go_to_next_month_button_disabled' : ''}`} aria-label='go_to_next_month_button' data-test-id='go_to_next_month_button' onClick={() => {dispatcher({type: 'go_to_next_month'})}} disabled={disable_go_to_next_month}>
             {'>'}
         </button>
     );

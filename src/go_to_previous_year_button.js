@@ -10,21 +10,24 @@ export default function GoToPreviousYearButton(props)
     let dispatcher = get_date_picker_data_dispatcher();
     let state = get_date_picker_data_state();
 
-    let can_go_to_previous_year = false;
-    if(state.current_year === ((new Date(state.lower_bound)).getFullYear() + 1))
+    let disable_go_to_previous_year = false;
+    if(state.lower_bound !== '')
     {
-        if(state.current_month >= (new Date(state.lower_bound)).getMonth())
+        if(state.current_year === ((new Date(state.lower_bound)).getFullYear() + 1))
         {
-            can_go_to_previous_year = true;
+            if(state.current_month < (new Date(state.lower_bound)).getMonth())
+            {
+                disable_go_to_previous_year = true;
+            }
         }
-    }
-    else if(state.current_year > ((new Date(state.lower_bound)).getFullYear() + 1))
-    {
-        can_go_to_previous_year = true;
+        else if(state.current_year === ((new Date(state.lower_bound)).getFullYear()))
+        {
+            disable_go_to_previous_year = true;
+        }
     }
 
     return (
-        <button id='go_to_previous_year_button' className={`go_to_previous_year_button ${(!can_go_to_previous_year) ? 'go_to_previous_year_button_disabled' : ''}`} aria-label='go_to_previous_year_button' data-test-id='go_to_previous_year_button' onClick={() => {dispatcher({type: 'go_to_previous_year'})}} disabled={!can_go_to_previous_year}>
+        <button id='go_to_previous_year_button' className={`go_to_previous_year_button ${(disable_go_to_previous_year) ? 'go_to_previous_year_button_disabled' : ''}`} aria-label='go_to_previous_year_button' data-test-id='go_to_previous_year_button' onClick={() => {dispatcher({type: 'go_to_previous_year'})}} disabled={disable_go_to_previous_year}>
             {'<<'}
         </button>
     );

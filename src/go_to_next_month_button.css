@@ -21,7 +21,6 @@
     color: var(--action_to_be_selected_color, hsla(0, 100%, 100%, 1));
 }
 
-
 .go_to_next_month_button_disabled
 {
     background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));

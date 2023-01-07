@@ -65,16 +65,28 @@ export default function Calendar(props)
 
     return (
         <div id='calendar' className='calendar' aria-label='calendar' data-test-id='calendar'>
-            <GoToPreviousYearButton />
-            <GoToPreviousMonthButton />
+            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
+                <>
+                    <GoToPreviousYearButton />
+                    <GoToPreviousMonthButton />
+                </>
+            }
             <GoToMonthButton />
             <GoToYearButton />
-            <GoToNextMonthButton />
-            <GoToNextyearButton />
-            {week_days_labels}
-            {place_holder_before_dates}           
-            {dates_in_month}
-            {place_holder_after_dates}
+            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
+                <>
+                    <GoToNextMonthButton />
+                    <GoToNextyearButton />
+                </>
+            }
+            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
+                <>
+                    {week_days_labels}
+                    {place_holder_before_dates}         
+                    {dates_in_month}
+                    {place_holder_after_dates}
+                </>
+            }
         </div>
     );
 }

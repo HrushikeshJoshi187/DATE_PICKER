@@ -20,7 +20,8 @@ const date_picker_data_initial_state =
     go_to_month_mode : false,
     go_to_year_mode : false,
     lower_bound: '',
-    upper_bound: ''
+    upper_bound: '',
+    missing_dates: new Set(),
 };
 
 function date_picker_data_reducer(state, action)
@@ -115,13 +116,16 @@ function date_picker_data_reducer(state, action)
             {
                 new_state.range_start = '';
             }
-            if(new_state.selected_dates.has(action.clicked_date))
+            if(!new_state.missing_dates.has(action.clicked_date))
             {
-                new_state.selected_dates.delete(action.clicked_date);
-            }
-            else
-            {
-                new_state.selected_dates.add(action.clicked_date);
+                if(new_state.selected_dates.has(action.clicked_date))
+                {
+                    new_state.selected_dates.delete(action.clicked_date);
+                }
+                else
+                {
+                    new_state.selected_dates.add(action.clicked_date);
+                }
             }
             return new_state;
         }
@@ -153,7 +157,10 @@ function date_picker_data_reducer(state, action)
                     {
                        for(let i = new Date(new_state.range_start); i <= new Date(action.clicked_date); i.setDate(i.getDate() + 1))
                        {
-                            new_state.selected_dates.add(i.toISOString().split('T')[0]);
+                            if(!new_state.missing_dates.has(i.toISOString().split('T')[0]))
+                            {
+                                new_state.selected_dates.add(i.toISOString().split('T')[0]);
+                            }
                        } 
                        new_state.range_start = '';
                     }   
@@ -175,7 +182,32 @@ export default function DatePickerDataProvider(props)
 {
     date_picker_data_initial_state.lower_bound = props.lower_bound;
     date_picker_data_initial_state.upper_bound = props.upper_bound;
+    date_picker_data_initial_state.missing_dates = new Set(props.missing_dates);
 
+    let upper_bound = new Date(props.upper_bound)
+    upper_bound = new Date(upper_bound.getFullYear(), upper_bound.getMonth(), upper_bound.getDate());
+    let lower_bound = new Date(props.lower_bound)
+    lower_bound = new Date(lower_bound.getFullYear(), lower_bound.getMonth(), lower_bound.getDate());
+
+    if(props.upper_bound !== '')
+    {
+        if(upper_bound < today_s_date)
+        {
+            date_picker_data_initial_state.current_year = upper_bound.getFullYear();
+            date_picker_data_initial_state.current_month = upper_bound.getMonth();
+            date_picker_data_initial_state.current_date = upper_bound.getDate();
+        }
+    }
+
+    if(props.lower_bound !== '')
+    {
+        if(lower_bound > today_s_date)
+        {
+            date_picker_data_initial_state.current_year = lower_bound.getFullYear();
+            date_picker_data_initial_state.current_month = lower_bound.getMonth();
+            date_picker_data_initial_state.current_date = lower_bound.getDate();
+        }
+    }
 
     const [date_picker_data_state, date_picker_data_dispatcher] = useReducer(
         date_picker_data_reducer,

@@ -13,12 +13,24 @@
     color: var(--date_color, hsla(0, 100%, 0%, 1));
 }
 
-.date_Button:hover
+.date_button:hover
 {
     background-color: var(--date_to_be_selected_background_color, hsla(232, 100%, 65%, 1));
     color: var(--date_to_be_selected_color, hsla(0, 100%, 100%, 1));
 
     transition-duration: 0.33s;
+}
+
+.date_button_disabled
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
+
+.date_button_disabled:hover
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
 }
 
 .date_button_present_date

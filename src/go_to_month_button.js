@@ -14,7 +14,7 @@ export default function GoToMonthButton(props)
     let dispatcher = get_date_picker_data_dispatcher();
 
     return (
-        <button id='go_to_month_button' className='go_to_month_button' aria-label='go_to_month_button' data-test-id='go_to_month_button' onClick={() => {dispatcher({type:'go_to_month'})}}>
+        <button id='go_to_month_button' className={`go_to_month_button ${(state.go_to_month_mode === true) ? 'go_to_month_button_selected' : ''}`} aria-label='go_to_month_button' data-test-id='go_to_month_button' onClick={() => {dispatcher({type:'go_to_month'})}}>
             {months_of_year_long_forms[state.current_month]}
         </button>
     );
