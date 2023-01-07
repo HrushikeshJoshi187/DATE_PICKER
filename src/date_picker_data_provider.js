@@ -17,8 +17,8 @@ const date_picker_data_initial_state =
     current_year: today_s_date.getFullYear(),
     selected_dates: new Set(),
     range_start: '',
-    go_to_month_mode : false,
-    go_to_year_mode : false,
+    go_to_months_mode : false,
+    go_to_years_mode : false,
     lower_bound: '',
     upper_bound: '',
     missing_dates: new Set(),
@@ -51,39 +51,27 @@ function date_picker_data_reducer(state, action)
             return new_state;
         }
 
-        case 'go_to_month':
+        case 'go_to_months':
         {
             new_state = {...state}
-            if(new_state.go_to_year_mode === true)
-            {
-                new_state.go_to_year_mode = false;
-            }
-            if(new_state.go_to_month_mode === true)
-            {
-                new_state.go_to_month_mode = false;
-            }
-            else
-            {
-                new_state.go_to_month_mode = true;
-            }
+            new_state.go_to_years_mode = false;
+            new_state.go_to_months_mode = true;
             return new_state;
         }
 
-        case 'go_to_year':
+        case 'go_to_years':
         {
             new_state = {...state}
-            if(new_state.go_to_month_mode === true)
-            {
-                new_state.go_to_month_mode = false;
-            }
-            if(new_state.go_to_year_mode === true)
-            {
-                new_state.go_to_year_mode = false;
-            }
-            else
-            {
-                new_state.go_to_year_mode = true;
-            }
+            new_state.go_to_months_mode = false;
+            new_state.go_to_years_mode = true;
+            return new_state;
+        }
+
+        case 'go_to_month':
+        {
+            new_state = {...state}
+            new_state.current_month = action.month;
+            new_state.go_to_months_mode = false;
             return new_state;
         }
 

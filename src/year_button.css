@@ -1,6 +1,5 @@
-.month_button
+.year_button
 {
-    width : 187.5px;
     height: 50px;
 
     margin: 2.5px;
@@ -13,7 +12,7 @@
     color: var(--date_color, hsla(0, 100%, 0%, 1));
 }
 
-.month_button:hover
+.year_button:hover
 {
     background-color: var(--date_to_be_selected_background_color, hsla(232, 100%, 65%, 1));
     color: var(--date_to_be_selected_color, hsla(0, 100%, 100%, 1));
@@ -21,7 +20,7 @@
     transition-duration: 0.33s;
 }
 
-.month_button_selected
+.year_button_selected
 {
     background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
     color: var(--date_selected_color, hsla(0, 100%, 100%, 1));

@@ -7,10 +7,11 @@ import DateButtonPlaceHolder from './date_button_place_holder.js';
 import DayLabel from './day_label.js';
 import GoToPreviousYearButton from './go_to_previous_year_button.js';
 import GoToPreviousMonthButton from './go_to_previous_month_button.js';
-import GoToMonthButton from './go_to_month_button.js';
-import GoToYearButton from './go_to_year_button.js';
+import GoToMonthsButton from './go_to_months_button.js';
+import GoToYearsButton from './go_to_years_button.js';
 import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
+import MonthButton from './month_button.js';
 import { get_date_picker_data_state } from './date_picker_data_provider.js';
 
 
@@ -29,6 +30,8 @@ export default function Calendar(props)
     let dates_in_month = [];
     let extra_day = 0;
     let total_number_of_dates = 42;
+    let total_number_of_months = 12;
+    let months_in_year = [];
 
     let first_day = (new Date(state.current_year, state.current_month , 1)).getDay();
     let number_of_place_holders_before_dates = first_day - props.first_day_of_week;
@@ -63,28 +66,32 @@ export default function Calendar(props)
         )
     }
 
+    for(let i = 0; i < total_number_of_months; i++)
+    {
+        months_in_year.push(
+            <MonthButton month={i} />
+        )
+    }
+
     return (
         <div id='calendar' className='calendar' aria-label='calendar' data-test-id='calendar'>
-            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
+            {(!state.go_to_months_mode) && (!state.go_to_years_mode) &&
                 <>
                     <GoToPreviousYearButton />
                     <GoToPreviousMonthButton />
-                </>
-            }
-            <GoToMonthButton />
-            <GoToYearButton />
-            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
-                <>
+                    <GoToMonthsButton />
+                    <GoToYearsButton />
                     <GoToNextMonthButton />
                     <GoToNextyearButton />
-                </>
-            }
-            {(!state.go_to_month_mode) && (!state.go_to_year_mode) &&
-                <>
                     {week_days_labels}
                     {place_holder_before_dates}         
                     {dates_in_month}
                     {place_holder_after_dates}
+                </>
+            }
+            {state.go_to_months_mode &&
+                <>
+                    {months_in_year}
                 </>
             }
         </div>

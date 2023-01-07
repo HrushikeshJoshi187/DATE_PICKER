@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './go_to_month_button.css';
+import './go_to_months_button.css';
 
 import { get_date_picker_data_state, get_date_picker_data_dispatcher } from './date_picker_data_provider.js';
 
@@ -14,7 +14,7 @@ export default function GoToMonthButton(props)
     let dispatcher = get_date_picker_data_dispatcher();
 
     return (
-        <button id='go_to_month_button' className={`go_to_month_button ${(state.go_to_month_mode === true) ? 'go_to_month_button_selected' : ''}`} aria-label='go_to_month_button' data-test-id='go_to_month_button' onClick={() => {dispatcher({type:'go_to_month'})}}>
+        <button id='go_to_month_button' className={`go_to_month_button ${(state.go_to_month_mode === true) ? 'go_to_month_button_selected' : ''}`} aria-label='go_to_month_button' data-test-id='go_to_month_button' onClick={() => {dispatcher({type:'go_to_months'})}}>
             {months_of_year_long_forms[state.current_month]}
         </button>
     );
