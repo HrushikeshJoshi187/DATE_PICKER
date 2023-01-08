@@ -14,6 +14,7 @@ import GoToNextyearButton from './go_to_next_year_button.js';
 import MonthButton from './month_button.js';
 import YearButton from './year_button.js';
 import { get_date_picker_data_state } from './date_picker_data_provider.js';
+import { get_app_data_dispatcher } from './app_data_provider.js';
 
 
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -22,7 +23,8 @@ let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 export default function Calendar(props)
 {
     const state = {...get_date_picker_data_state()};
-    console.log('data : ', state);
+    const dispatcher = get_app_data_dispatcher();
+    dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
 
     let week_days_labels= [];
     let number_of_days_in_a_week = 7;
