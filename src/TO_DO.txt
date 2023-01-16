@@ -1,8 +1,0 @@
-add first day of week
-accessiblity and tab control
-language support
-add decade buttons
-optimize - reduce lower bound date() calls by making a state of it
-add selected dates pane?
-
-selected dates from previous month 
