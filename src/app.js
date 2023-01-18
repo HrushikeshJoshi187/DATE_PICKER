@@ -3,8 +3,8 @@ import React from 'react';
 import './app.css';
 
 import AppDataProvider from './app_data_provider.js';
-import DatePicker from './date_picker.js';
-import BarChart from './bar_chart.js';
+import DatePicker from './date_picker/date_picker.js';
+import BarChart from './bar_chart/bar_chart.js';
 
 
 export default function App()

@@ -28,7 +28,7 @@ function app_data_reducer(state, action)
 
 export default function AppDataProvider(props)
 {
-    console.log(app_data_initial_state)
+    // console.log(app_data_initial_state)
     const [app_data_state, app_data_dispatcher] = useReducer(
         app_data_reducer,
         app_data_initial_state

@@ -14,7 +14,7 @@ import GoToNextyearButton from './go_to_next_year_button.js';
 import MonthButton from './month_button.js';
 import YearButton from './year_button.js';
 import { get_date_picker_data_state } from './date_picker_data_provider.js';
-import { get_app_data_dispatcher } from './app_data_provider.js';
+import { get_app_data_dispatcher } from '.././app_data_provider.js';
 
 
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -46,42 +46,42 @@ export default function Calendar(props)
     for(let i = 0; i < number_of_days_in_a_week; i++)
     {
         week_days_labels.push(
-            <DayLabel label_number={i} />
+            <DayLabel key={i} label_number={i} />
         )
     }
 
     for(let i = 0, k = (state.current_month === 0 ? 31 : number_of_dates_in_month[state.current_month - 1]) - number_of_place_holders_before_dates + 1; i < number_of_place_holders_before_dates; i++, k++)
     {
         place_holder_before_dates.push(
-            <DateButtonPlaceHolder place_holder_number={i} date={k} />
+            <DateButtonPlaceHolder key={i} place_holder_number={i} date={k} />
         )
     }
 
     for(let i = 0; i < number_of_dates_in_month[state.current_month] + extra_day; i++)
     {
         dates_in_month.push(
-            <DateButton date={i + 1} month={state.current_month} year={state.current_year}/>
+            <DateButton key={i} date={i + 1} month={state.current_month} year={state.current_year}/>
         )
     }
 
     for(let i = number_of_place_holders_before_dates + number_of_dates_in_month[state.current_month] + extra_day, j = number_of_place_holders_before_dates, k = 1; i < total_number_of_dates; i++, j++, k++)
     {
         place_holder_after_dates.push(
-            <DateButtonPlaceHolder place_holder_number={j} date={k} />
+            <DateButtonPlaceHolder key={j} place_holder_number={j} date={k} />
         )
     }
 
     for(let i = 0; i < total_number_of_months; i++)
     {
         months_in_year.push(
-            <MonthButton month={i} year={state.current_year}/>
+            <MonthButton key={i} month={i} year={state.current_year}/>
         )
     }
 
     for(let i = 0, j = state.current_year - 5; i < tota_number_years_in_a_decade; i++, j++)
     {
         years_in_decade.push(
-            <YearButton month={state.current_month} year={j} />
+            <YearButton key={i} month={state.current_month} year={j} />
         )
     }
 
