@@ -17,7 +17,7 @@ export default function GoToNextMonthButton(props)
     }
 
     return (
-        <button id='go_to_next_month_button' className={`go_to_next_month_button ${(disable_go_to_next_month) ? 'go_to_next_month_button_disabled' : ''}`} aria-label='go_to_next_month_button' data-test-id='go_to_next_month_button' onClick={() => {dispatcher({type: 'go_to_next_month'})}} disabled={disable_go_to_next_month}>
+        <button id='go_to_next_month_button' className={`go_to_next_month_button ${(disable_go_to_next_month) ? 'go_to_next_month_button_disabled' : ''}`} aria-label='Go to next month button' data-test-id='go_to_next_month_button' onClick={() => {dispatcher({type: 'go_to_next_month'})}} disabled={disable_go_to_next_month}>
             {'>'}
         </button>
     );

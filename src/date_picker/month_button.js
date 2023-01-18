@@ -30,7 +30,7 @@ export default function MonthButton(props)
     }
     
     return (
-        <button id={`month_button_${((props.month + 1) < 10) ? '0' : ''}${props.month + 1}`} className={`month_button ${(state.current_month === props.month) ? 'month_button_selected' : ''} ${disable_month_button ? 'month_button_disabled' : ''}`} aria-label={`month_button_${((props.month + 1) < 10) ? '0' : ''}${props.month + 1}`} data-test-id={`month_button_${((props.month + 1) < 10) ? '0' : ''}${props.month + 1}`} onClick={() => {dispatcher({type:'go_to_month',month:props.month})}} disabled={disable_month_button}>
+        <button id={`month_button_${((props.month + 1) < 10) ? '0' : ''}${props.month + 1}`} className={`month_button ${(state.current_month === props.month) ? 'month_button_selected' : ''} ${disable_month_button ? 'month_button_disabled' : ''}`} aria-label={months_of_year_long_forms[props.month]} data-test-id={`month_button_${((props.month + 1) < 10) ? '0' : ''}${props.month + 1}`} onClick={() => {dispatcher({type:'go_to_month',month:props.month})}} disabled={disable_month_button}>
             {months_of_year_long_forms[props.month]}
         </button>
     );

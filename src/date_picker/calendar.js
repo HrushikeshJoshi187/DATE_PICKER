@@ -28,8 +28,8 @@ export default function Calendar()
 
     let week_days_labels= [];
     let number_of_days_in_a_week = 7;
-    let place_holder_before_dates = [];
-    let place_holder_after_dates = [];
+    let place_holders_before_dates = [];
+    let place_holders_after_dates = [];
     let dates_in_month = [];
     let extra_day = 0;
     let total_number_of_dates = 42;
@@ -69,7 +69,7 @@ export default function Calendar()
 
     for(let i = 0, k = (state.current_month === 0 ? 31 : number_of_dates_in_month[state.current_month - 1]) - number_of_place_holders_before_dates + 1; i < number_of_place_holders_before_dates; i++, k++)
     {
-        dates_in_month.push(
+        place_holders_before_dates.push(
             <DateButton date={k} month={state.current_month === 0 ? 11 : state.current_month - 1} year={state.current_month === 0 ? state.current_year - 1 : state.current_year} date_from_previous_month={true}/>
         )
     }
@@ -83,7 +83,7 @@ export default function Calendar()
 
     for(let i = number_of_place_holders_before_dates + number_of_dates_in_month[state.current_month] + extra_day, j = number_of_place_holders_before_dates, k = 1; i < total_number_of_dates; i++, j++, k++)
     {
-        dates_in_month.push(
+        place_holders_after_dates.push(
             <DateButton date={k} month={state.current_month === 11 ? 0 : state.current_month + 1} year={state.current_month === 11 ? state.current_year + 1 : state.current_year} date_from_next_month={true}/>
         )
     }
@@ -102,10 +102,8 @@ export default function Calendar()
         )
     }
 
-    console.log(dates_in_month);
-
     return (
-        <div id='calendar' className='calendar' aria-label='calendar' data-test-id='calendar'>
+        <div id='calendar' className='calendar' aria-label='Calendar' data-test-id='calendar'>
             {(!state.go_to_months_mode) && (!state.go_to_years_mode) &&
                 <>
                     <GoToPreviousYearButton />
@@ -115,9 +113,9 @@ export default function Calendar()
                     <GoToNextMonthButton />
                     <GoToNextyearButton />
                     {week_days_labels}
-                    {place_holder_before_dates}         
+                    {place_holders_before_dates}         
                     {dates_in_month}
-                    {place_holder_after_dates}
+                    {place_holders_after_dates}
                 </>
             }
             {state.go_to_months_mode &&

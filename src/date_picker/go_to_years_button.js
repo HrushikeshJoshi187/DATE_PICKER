@@ -11,7 +11,7 @@ export default function GoToYearButton(props)
     let dispatcher = get_date_picker_data_dispatcher();
     
     return (
-        <button id='go_to_years_button' className={`go_to_years_button  ${(state.go_to_year_mode === true) ? 'go_to_years_button_selected' : ''}`} aria-label='go_to_years_button' data-test-id='go_to_years_button' onClick={() => {dispatcher({type: 'go_to_years'})}}>
+        <button id='go_to_years_button' className={`go_to_years_button  ${(state.go_to_year_mode === true) ? 'go_to_years_button_selected' : ''}`} aria-label='Go to years button' data-test-id='go_to_years_button' onClick={() => {dispatcher({type: 'go_to_years'})}}>
             {state.current_year}
         </button>
     );

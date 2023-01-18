@@ -26,14 +26,14 @@ export default function DateButton(props)
         const click_duration = end_time - start_time;
         if(click_duration > 500)
         {
-            if(!(disable_date || state.missing_dates.has(date) || props.date_from_previous_month || props.date_from_next_month))
+            if(!(disable_date || state.missing_dates.has(date)))
             {
                 dispatcher({type: 'check_range', clicked_date: date});
             }
         }
         else
         {
-            if(!(disable_date || state.missing_dates.has(date) || props.date_from_previous_month || props.date_from_next_month))
+            if(!(disable_date || state.missing_dates.has(date)))
             {
                 dispatcher({type: 'check_date', clicked_date: date});
             }
@@ -47,6 +47,11 @@ export default function DateButton(props)
     }
 
     if(state.upper_bound !== '' && ((new Date(date)) > (new Date(state.upper_bound))))
+    {
+        disable_date = true;
+    }
+
+    if(props.date_from_previous_month || props.date_from_next_month)
     {
         disable_date = true;
     }

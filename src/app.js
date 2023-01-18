@@ -15,7 +15,7 @@ export default function App()
         {false &&
           <BarChart />
         }
-        <DatePicker lower_bound='' upper_bound='' missing_dates='' first_day_of_week={6}/>
+        <DatePicker lower_bound='' upper_bound='' missing_dates='' first_day_of_week={0}/>
       </AppDataProvider>
     </div>
   );

@@ -17,7 +17,7 @@ export default function GoToPreviousMonthButton(props)
     }
 
     return (
-        <button id='go_to_previous_month_button' className={`go_to_previous_month_button ${(disable_go_to_previous_month) ? 'go_to_previous_month_button_disabled' : ''}`} aria-label='go_to_previous_month_button' data-test-id='go_to_previous_month_button' onClick={() => {dispatcher({type: 'go_to_previous_month'})}} disabled={disable_go_to_previous_month}>
+        <button id='go_to_previous_month_button' className={`go_to_previous_month_button ${(disable_go_to_previous_month) ? 'go_to_previous_month_button_disabled' : ''}`} aria-label='Go to previous month button' data-test-id='go_to_previous_month_button' onClick={() => {dispatcher({type: 'go_to_previous_month'})}} disabled={disable_go_to_previous_month}>
             {'<'}
         </button>
     );

@@ -27,7 +27,7 @@ export default function GoToPreviousYearButton(props)
     }
 
     return (
-        <button id='go_to_previous_year_button' className={`go_to_previous_year_button ${(disable_go_to_previous_year) ? 'go_to_previous_year_button_disabled' : ''}`} aria-label='go_to_previous_year_button' data-test-id='go_to_previous_year_button' onClick={() => {dispatcher({type: 'go_to_previous_year'})}} disabled={disable_go_to_previous_year}>
+        <button id='go_to_previous_year_button' className={`go_to_previous_year_button ${(disable_go_to_previous_year) ? 'go_to_previous_year_button_disabled' : ''}`} aria-label='Go to previous year button' data-test-id='go_to_previous_year_button' onClick={() => {dispatcher({type: 'go_to_previous_year'})}} disabled={disable_go_to_previous_year}>
             {'<<'}
         </button>
     );
