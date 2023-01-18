@@ -16,6 +16,6 @@ export default function GoToMonthButton(props)
     return (
         <button id='go_to_month_button' className={`go_to_month_button ${(state.go_to_month_mode === true) ? 'go_to_month_button_selected' : ''}`} aria-label='Go to month button' data-test-id='go_to_month_button' onClick={() => {dispatcher({type:'go_to_months'})}}>
             {months_of_year_long_forms[state.current_month]}
-        </button>
+        </button>   
     );
 }
