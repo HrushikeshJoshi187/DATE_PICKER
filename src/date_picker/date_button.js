@@ -2,7 +2,7 @@ import React from 'react';
 
 import './date_button.css';
 
-import { get_date_picker_data_dispatcher, get_date_picker_data_state } from './date_picker_data_provider.js';
+import { get_date_picker_data_dispatcher, get_date_picker_data_state } from './date_picker_data_store.js';
 
 
 const months_of_year_long_forms =  ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

@@ -1,4 +1,4 @@
-import React , { createContext, useContext, useReducer, useState } from 'react';
+import React , { createContext, useContext, useReducer } from 'react';
 
 
 let today_s_date = new Date();
@@ -22,6 +22,7 @@ const date_picker_data_initial_state =
     lower_bound: '',
     upper_bound: '',
     missing_dates: new Set(),
+    first_day_of_week:0
 };
 
 function date_picker_data_reducer(state, action)
@@ -197,11 +198,12 @@ function date_picker_data_reducer(state, action)
     }
 }
 
-export default function DatePickerDataProvider(props)
+export default function DatePickerDataStore(props)
 {
     date_picker_data_initial_state.lower_bound = props.lower_bound;
     date_picker_data_initial_state.upper_bound = props.upper_bound;
     date_picker_data_initial_state.missing_dates = new Set(props.missing_dates);
+    date_picker_data_initial_state.first_day_of_week = props.first_day_of_week;
 
     let upper_bound = new Date(props.upper_bound)
     upper_bound = new Date(upper_bound.getFullYear(), upper_bound.getMonth(), upper_bound.getDate());

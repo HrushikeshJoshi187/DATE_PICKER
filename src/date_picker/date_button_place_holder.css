@@ -1,5 +1,13 @@
 .date_button_place_holder
 {
+    font-family: var(--font_family, Verdana, Arial, sans-serif);
+    font-size: var(--font_size, 16px);
+    margin: var(--margin, 0px);
+    outline: var(--outline, 0px);
+    border: var(--border, 0px);
+    padding: var(--padding, 0px);
+    box-sizing: var(--box_sizing, border-box);
+    
     height: 50px;
     width: 50px;
 

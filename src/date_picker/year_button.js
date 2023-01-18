@@ -2,7 +2,7 @@ import React from 'react';
 
 import './year_button.css';
 
-import { get_date_picker_data_dispatcher, get_date_picker_data_state } from './date_picker_data_provider.js';
+import { get_date_picker_data_dispatcher, get_date_picker_data_state } from './date_picker_data_store.js';
 
 
 export default function YearButton(props)

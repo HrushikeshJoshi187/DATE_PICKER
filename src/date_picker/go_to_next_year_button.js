@@ -2,7 +2,7 @@ import React from 'react';
 
 import './go_to_next_year_button.css';
 
-import { get_date_picker_data_state, get_date_picker_data_dispatcher } from './date_picker_data_provider.js';
+import { get_date_picker_data_state, get_date_picker_data_dispatcher } from './date_picker_data_store.js';
 
 
 export default function GoToNextYearButton(props)

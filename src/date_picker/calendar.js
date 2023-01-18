@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './calendar.css';
 
@@ -13,14 +13,14 @@ import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
 import MonthButton from './month_button.js';
 import YearButton from './year_button.js';
-import { get_date_picker_data_state } from './date_picker_data_provider.js';
+import { get_date_picker_data_state } from './date_picker_data_store.js';
 import { get_app_data_dispatcher } from '.././app_data_provider.js';
 
 
 let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 
-export default function Calendar(props)
+export default function Calendar()
 {
     const state = {...get_date_picker_data_state()};
     const dispatcher = get_app_data_dispatcher();
@@ -39,7 +39,7 @@ export default function Calendar(props)
     let years_in_decade = [];
 
     let first_day = (new Date(state.current_year, state.current_month , 1)).getDay();
-    let number_of_place_holders_before_dates = first_day - props.first_day_of_week;
+    let number_of_place_holders_before_dates = first_day - state.first_day_of_week;
     
     extra_day = ((state.current_month === 1) && (state.current_year % 100 === 0 ? state.current_year % 400 === 0 : state.current_year % 4 === 0)) ? 1 : 0;
 
@@ -84,6 +84,12 @@ export default function Calendar(props)
             <YearButton key={i} month={state.current_month} year={j} />
         )
     }
+
+    useEffect(() => {
+        console.log('calendar updated');
+        // const dispatcher = get_app_data_dispatcher();
+        // dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
+    });
 
     return (
         <div id='calendar' className='calendar' aria-label='calendar' data-test-id='calendar'>
