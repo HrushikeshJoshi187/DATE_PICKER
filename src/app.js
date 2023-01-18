@@ -12,8 +12,10 @@ export default function App()
   return (
     <div id='app' className='app' aria-label='app' data-test-id='app'>
       <AppDataProvider>
-        <BarChart />
-        <DatePicker lower_bound='' upper_bound='' missing_dates='' first_day_of_week={0}/>
+        {false &&
+          <BarChart />
+        }
+        <DatePicker lower_bound='' upper_bound='' missing_dates='' first_day_of_week={6}/>
       </AppDataProvider>
     </div>
   );

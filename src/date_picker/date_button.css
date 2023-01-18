@@ -66,3 +66,19 @@
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 50px;
 }
+
+.date_button_disabled.date_button_selected
+{
+    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
+    opacity: 0.5;
+    transition: 0s;
+}
+
+.date_button_disabled.date_button_selected:hover
+{
+    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
+    opacity: 0.5;
+    transition: 0s;
+}

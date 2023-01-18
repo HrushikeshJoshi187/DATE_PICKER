@@ -41,10 +41,6 @@ const date_picker_styles = {
 
   '--action_to_be_selected_background_color': 'hsla(232, 100%, 50%, 1)',
   '--action_to_be_selected_color': 'hsla(0, 100%, 100%, 1)',
-
-
-  
-  
 }
 
 export default function DatePicker(props)
