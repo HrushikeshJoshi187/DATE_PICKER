@@ -26,7 +26,6 @@ export default function Calendar()
     const state = {...get_date_picker_data_state()};
     // const dispatcher = get_app_data_dispatcher();
     // dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
-    console.log(state);
 
 
     let week_days_labels= [];

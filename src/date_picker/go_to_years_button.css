@@ -15,8 +15,8 @@
     border-width: 0px;
     border-radius: 50px;
 
-    background-color: var(--action_background_color, hsla(0, 100%, 100%, 1));
-    color: var(--action_color, hsla(0, 100%, 0%, 1));
+    background-color: var(--not_selected_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--not_selected_color, hsla(0, 100%, 0%, 1));
 
     margin: 2.5px;
 
@@ -25,12 +25,12 @@
 
 .go_to_years_button:hover
 {
-    background-color: var(--action_to_be_selected_background_color, hsla(232, 100%, 50%, 1));
-    color: var(--action_to_be_selected_color, hsla(0, 100%, 100%, 1));
+    background-color: var(--to_be_selected_background_color, hsla(232, 100%, 50%, 1));
+    color: var(--to_be_selected_color, hsla(0, 100%, 100%, 1));
 }
 
 .go_to_years_button_selected
 {
-    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
-    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
+    background-color: var(--selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--selected_color, hsla(0, 100%, 100%, 1));
 }

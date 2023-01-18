@@ -15,32 +15,23 @@ const date_picker_styles = {
   '--padding': '0px',
   '--box_sizing': 'border-box',
 
-  '--background_color': 'hsla(0, 100%, 100%, 1)',
-  '--color': 'hsla(0, 100%, 0%, 1)',
+  '--not_selected_background_color': 'hsla(0, 100%, 100%, 1)',
+  '--not_selected_color': 'hsla(0, 100%, 0%, 1)',
 
-  '--date_background_color': 'hsla(0, 100%, 100%, 1)',
-  '--date_color': 'hsla(0, 100%, 0%, 1)',
+  '--to_be_selected_background_color': 'hsla(232, 100%, 65%, 1)',
+  '--to_be_selected_color': 'hsla(0, 100%, 100%, 1)',
 
-  '--date_to_be_selected_background_color': 'hsla(232, 100%, 65%, 1)',
-  '--date_to_be_selected_color': 'hsla(0, 100%, 100%, 1)',
+  '--selected_background_color': 'hsla(231, 100%, 47%, 1)',
+  '--selected_color': 'hsla(0, 100%, 100%, 1)',
 
-  '--date_selected_background_color': 'hsla(231, 100%, 47%, 1)',
-  '--date_selected_color': 'hsla(0, 100%, 100%, 1)',
+  '--disabled_background_color': 'hsla(0, 100%, 100%, 1)',
+  '--disabled_color': 'hsla(0, 0%, 80%, 1)',
 
-  '--date_disabled_background_color': 'hsla(0, 100%, 100%, 1)',
-  '--date_disabled_color': 'hsla(0, 0%, 80%, 1)',
-
-  '--day_label_background_color': 'hsla(0, 100%, 100%, 1)',
-  '--day_label_color': 'hsla(0, 100%, 0%, 1)',
+  '--label_background_color': 'hsla(0, 100%, 100%, 1)',
+  '--label_color': 'hsla(0, 100%, 0%, 1)',
 
   '--tooltip_background_color': 'hsla(0, 0%, 50%, 1)',
   '--tooltip_color': 'hsla(0, 100%, 100%, 1)',
-
-  '--action_background_color': 'hsla(0, 100%, 100%, 1)',
-  '--action_color': 'hsla(0, 100%, 0%, 1)',
-
-  '--action_to_be_selected_background_color': 'hsla(232, 100%, 50%, 1)',
-  '--action_to_be_selected_color': 'hsla(0, 100%, 100%, 1)',
 }
 
 export default function DatePicker(props)

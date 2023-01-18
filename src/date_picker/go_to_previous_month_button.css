@@ -15,8 +15,8 @@
     border-width: 0px;
     border-radius: 50px;
 
-    background-color: var(--action_background_color, hsla(0, 100%, 100%, 1));
-    color: var(--action_color, hsla(0, 100%, 0%, 1));
+    background-color: var(--not_selected_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--not_selected_color, hsla(0, 100%, 0%, 1));
 
     margin: 2.5px;
 
@@ -25,18 +25,18 @@
 
 .go_to_previous_month_button:hover
 {
-    background-color: var(--action_to_be_selected_background_color, hsla(232, 100%, 50%, 1));
-    color: var(--action_to_be_selected_color, hsla(0, 100%, 100%, 1));
+    background-color: var(--to_be_selected_background_color, hsla(232, 100%, 50%, 1));
+    color: var(--to_be_selected_color, hsla(0, 100%, 100%, 1));
 }
 
 .go_to_previous_month_button_disabled
 {
-    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
-    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+    background-color: var(--disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--disabled_color, hsla(0, 0%, 80%, 1));
 }
 
 .go_to_previous_month_button_disabled:hover
 {
-    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
-    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+    background-color: var(--disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--disabled_color, hsla(0, 0%, 80%, 1));
 }
