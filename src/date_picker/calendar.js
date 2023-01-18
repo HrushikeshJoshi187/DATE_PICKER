@@ -12,6 +12,8 @@ import GoToNextMonthButton from './go_to_next_month_button.js';
 import GoToNextyearButton from './go_to_next_year_button.js';
 import MonthButton from './month_button.js';
 import YearButton from './year_button.js';
+import GoToNextDecadeButton from './go_to_next_decade';
+import GoToPreviousDecadeButton from './go_to_previous_decade';
 import { get_date_picker_data_state } from './date_picker_data_store.js';
 import { get_app_data_dispatcher } from '.././app_data_provider.js';
 
@@ -24,6 +26,7 @@ export default function Calendar()
     const state = {...get_date_picker_data_state()};
     // const dispatcher = get_app_data_dispatcher();
     // dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
+    console.log(state);
 
 
     let week_days_labels= [];
@@ -56,8 +59,6 @@ export default function Calendar()
     {
         number_of_place_holders_before_dates = number_of_days_in_a_week - Math.abs(first_day - state.first_day_of_week);
     }
-
-    console.log(number_of_place_holders_before_dates);
     
 
     for(let i = 0; i < number_of_days_in_a_week; i++)
@@ -91,14 +92,14 @@ export default function Calendar()
     for(let i = 0; i < total_number_of_months; i++)
     {
         months_in_year.push(
-            <MonthButton key={i} month={i} year={state.current_year}/>
+            <MonthButton month={i} year={state.current_year}/>
         )
     }
 
-    for(let i = 0, j = state.current_year - 5; i < tota_number_years_in_a_decade; i++, j++)
+    for(let i = 0, j = state.current_decade; i < tota_number_years_in_a_decade; i++, j++)
     {
         years_in_decade.push(
-            <YearButton key={i} month={state.current_month} year={j} />
+            <YearButton month={state.current_month} year={j} />
         )
     }
 
@@ -125,6 +126,8 @@ export default function Calendar()
             }
             {state.go_to_years_mode &&
                 <>
+                    <GoToPreviousDecadeButton />
+                    <GoToNextDecadeButton />
                     {years_in_decade}
                 </>
             }

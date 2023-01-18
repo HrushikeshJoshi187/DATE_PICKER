@@ -21,3 +21,29 @@
     border-width: 0px;
     border-radius: 50px;
 }
+
+.go_to_next_decade:hover
+{
+    background-color: var(--date_to_be_selected_background_color, hsla(232, 100%, 65%, 1));
+    color: var(--date_to_be_selected_color, hsla(0, 100%, 100%, 1));
+
+    transition-duration: 0.33s;
+}
+
+.go_to_next_decade_selected
+{
+    background-color: var(--date_selected_background_color, hsla(231, 100%, 47%, 1));
+    color: var(--date_selected_color, hsla(0, 100%, 100%, 1));
+}
+
+.go_to_next_decade_disabled
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
+
+.go_to_next_decade_disabled:hover
+{
+    background-color: var(--date_disabled_background_color, hsla(0, 100%, 100%, 1));
+    color: var(--date_disabled_color, hsla(0, 0%, 80%, 1));
+}
