@@ -56,7 +56,7 @@
 .day_label_Sunday
 {
     width: 71px;
-    left: -10.5px;
+    left: 0px;
 }
 
 .day_label_Monday
@@ -92,7 +92,7 @@
 .day_label_Saturday
 {
     width: 83px;
-    left: -16.5px;
+    left: -43px;
 }
 
 .day_label:hover .day_label_tooltip

@@ -26,7 +26,7 @@ export default function DateButton(props)
         const click_duration = end_time - start_time;
         if(click_duration > 500)
         {
-            if(!(disable_date || state.missing_dates.has(date)))
+            if(!(disable_date || state.missing_dates.has(date) || state.only_select_a_date))
             {
                 dispatcher({type: 'check_range', clicked_date: date});
             }

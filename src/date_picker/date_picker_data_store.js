@@ -24,7 +24,8 @@ const date_picker_data_initial_state =
     lower_bound: '',
     upper_bound: '',
     missing_dates: new Set(),
-    first_day_of_week:0
+    first_day_of_week:0,
+    only_select_a_date: true,
 };
 
 function date_picker_data_reducer(state, action)
@@ -167,12 +168,12 @@ function date_picker_data_reducer(state, action)
         case 'check_date':
         {
             new_state = {...state}
-            if(new_state.range_start !== '')
+            if(new_state.only_select_a_date === false)
             {
-                new_state.range_start = '';
-            }
-            if(!new_state.missing_dates.has(action.clicked_date))
-            {
+                if(new_state.range_start !== '')
+                {
+                    new_state.range_start = '';
+                }
                 if(new_state.selected_dates.has(action.clicked_date))
                 {
                     new_state.selected_dates.delete(action.clicked_date);
@@ -181,8 +182,18 @@ function date_picker_data_reducer(state, action)
                 {
                     new_state.selected_dates.add(action.clicked_date);
                 }
+                return new_state;
             }
-            return new_state;
+            else
+            {
+                if(new_state.range_start !== '')
+                {
+                    new_state.range_start = '';
+                }
+                new_state.selected_dates.clear();
+                new_state.selected_dates.add(action.clicked_date);
+                return new_state;
+            }
         }
 
         case 'check_range':
@@ -210,14 +221,14 @@ function date_picker_data_reducer(state, action)
                 {
                     if(new Date(new_state.range_start) < new Date(action.clicked_date))
                     {
-                       for(let i = new Date(new_state.range_start); i <= new Date(action.clicked_date); i.setDate(i.getDate() + 1))
-                       {
-                            if(!new_state.missing_dates.has(i.toISOString().split('T')[0]))
-                            {
-                                new_state.selected_dates.add(i.toISOString().split('T')[0]);
-                            }
-                       } 
-                       new_state.range_start = '';
+                        for(let i = new Date(new_state.range_start); i <= new Date(action.clicked_date); i.setDate(i.getDate() + 1))
+                        {
+                                if(!new_state.missing_dates.has(i.toISOString().split('T')[0]))
+                                {
+                                    new_state.selected_dates.add(i.toISOString().split('T')[0]);
+                                }
+                        } 
+                        new_state.range_start = '';
                     }   
                     else
                     {
@@ -239,6 +250,8 @@ export default function DatePickerDataStore(props)
     date_picker_data_initial_state.upper_bound = props.upper_bound;
     date_picker_data_initial_state.missing_dates = new Set(props.missing_dates);
     date_picker_data_initial_state.first_day_of_week = (props.first_day_of_week >= 0 && props.first_day_of_week <= 6 ) ? props.first_day_of_week : 0;
+    date_picker_data_initial_state.only_select_a_date = (props.only_select_a_date === true || props.only_select_a_date === false) ? props.only_select_a_date : false;
+
 
     let upper_bound = new Date(props.upper_bound)
     upper_bound = new Date(upper_bound.getFullYear(), upper_bound.getMonth(), upper_bound.getDate());
