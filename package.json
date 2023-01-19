@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "A simple date picker which supports single, multiple and range selections.",
   "private": false,
-  "main": "dist/component/date_picker.js",
+  "main": "dist/date_picker/date_picker.js",
   "source": "src/date_picker/date_picker.js",
   "scripts": {
     "test": "echo \"Error  : no test specified\" && exit 1",
     "start": "webpack serve --config ./webpack_configurations/webpack.dev.js",
-    "build_component": "webpack --config ./webpack_configurations/webpack.build_date_picker.config.js",
-    "build_website": "webpack --config ./webpack_configurations/webpack.build_date_picker_website.config.js"
+    "build_date_picker": "webpack --config ./webpack_configurations/webpack.build_date_picker.config.js",
+    "build_date_picker_website": "webpack --config ./webpack_configurations/webpack.build_date_picker_website.config.js"
   },
   "repository": {
     "type": "git",
