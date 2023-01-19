@@ -1,0 +1,4 @@
+accessiblity and tab control
+language support
+optimize - reduce lower bound date() calls by making a state of it
+add selected dates pane?
