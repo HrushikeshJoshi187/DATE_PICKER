@@ -1,12 +1,15 @@
 {
-  "name": "date_picker",
+  "name": "@hrushi_joshi_187/date_picker",
   "version": "1.0.0",
   "description": "A simple date picker which supports single, multiple and range selections.",
-  "private": true,
+  "private": false,
+  "main": "dist/component/date_picker.js",
+  "source": "src/date_picker/date_picker.js",
   "scripts": {
     "test": "echo \"Error  : no test specified\" && exit 1",
-    "build": "webpack --config ./webpack_configurations/webpack.prod.js",
-    "start": "webpack serve --config ./webpack_configurations/webpack.dev.js"
+    "start": "webpack serve --config ./webpack_configurations/webpack.dev.js",
+    "build_component": "webpack --config ./webpack_configurations/webpack.build_date_picker.config.js",
+    "build_website": "webpack --config ./webpack_configurations/webpack.build_date_picker_website.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,8 @@
   },
   "homepage": "https://github.com/HrushikeshJoshi187/DATE_PICKER#readme",
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
@@ -32,9 +37,8 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
   },
-  "dependencies": {
+  "peer-dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.6.1"
+    "react-dom": "^18.2.0"
   }
 }

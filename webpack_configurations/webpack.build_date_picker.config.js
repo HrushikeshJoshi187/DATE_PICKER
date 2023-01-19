@@ -1,39 +1,18 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports =
 {
-  mode: 'development',
-  devtool: 'inline-source-map',
-  devServer: 
-  {
-    static : './dist'
-  },
+  mode: 'production',
   entry:  
   {
-    date_picker_website: './src/index.js'
-  }, 
-  plugins:
-  [
-    new HtmlWebpackPlugin(
-      {
-        title: 'DATE_PICKER',
-        templateContent : 
-        `
-          <html>
-            <body>
-              <div id='root' class='root' aria-label='root' data-test-id='root'></div>
-            </body>
-          </html>
-        `
-      }
-    )
-  ],
+    date_picker: './src/date_picker/date_picker.js'
+  },
   output: 
   {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist/website/'),
-    clean: true
+    path: path.resolve(__dirname, '../dist/date_picker/'),
+    clean: true,
+    libraryTarget: 'commonjs2'
   },
   module: 
   {
@@ -75,6 +54,31 @@ module.exports =
           chunks: 'all'
         }
       }
+    }
+  },
+  resolve: 
+  {      
+    alias: 
+    {          
+      'react': path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),      
+    }  
+  },  
+  externals: 
+  {  
+    react: 
+    {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React"
+    },
+    "react-dom": 
+    {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
     }
   }
 };
