@@ -1,6 +1,6 @@
 {
   "name": "@hrushi_joshi_187/date_picker",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A simple date picker which supports single, multiple and range selections.",
   "private": false,
   "main": "dist/date_picker/date_picker.js",
