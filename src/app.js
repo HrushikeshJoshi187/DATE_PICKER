@@ -12,10 +12,10 @@ export default function App()
   return (
     <div id='app' className='app' aria-label='app' data-test-id='app'>
       <AppDataProvider>
-        {false &&
+        {true &&
           <BarChart />
         }
-        <DatePicker lower_bound='2015-07-14' upper_bound='2035-06-27' missing_dates={['2023-01-10','2023-01-20','2023-01-21','2023-01-22','2023-01-24']} first_day_of_week={0} only_select_a_date={false} styling={
+        <DatePicker lower_bound='2022-12-14' upper_bound='2023-01-27' missing_dates={['2023-01-10','2023-01-20','2023-01-21','2023-01-22','2023-01-24']} first_day_of_week={0} only_select_a_date={false} styling={
             {
               not_selected_background_color: 'hsla(0, 100%, 100%, 1)',
               not_selected_color: 'hsla(0, 100%, 0%, 1)',

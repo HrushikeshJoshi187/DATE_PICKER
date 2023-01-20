@@ -24,8 +24,8 @@ let number_of_dates_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 export default function Calendar()
 {
     const state = {...get_date_picker_data_state()};
-    // const dispatcher = get_app_data_dispatcher();
-    // dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
+    const dispatcher = get_app_data_dispatcher();
+    dispatcher({type:'update_selected_dates',selected_dates: new Set(state.selected_dates)});
 
 
     let week_days_labels= [];
